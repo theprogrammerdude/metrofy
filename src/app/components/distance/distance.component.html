@@ -1,0 +1,50 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+  "
+>
+  <h1 style="margin: 10px; text-align: center; color: indigo">
+    Find Distance Between Metro Stations
+  </h1>
+
+  <div class="inputs">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>From</mat-label>
+      <input type="text" matInput [matAutocomplete]="auto" [(ngModel)]="from" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let station of stations" [value]="station.name">
+          {{ station.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>To</mat-label>
+      <input type="text" matInput [matAutocomplete]="auto" [(ngModel)]="to" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let station of stations" [value]="station.name">
+          {{ station.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
+  <mat-spinner
+    style="margin-bottom: 20px"
+    [diameter]="50"
+    *ngIf="loading"
+  ></mat-spinner>
+
+  <button
+    mat-raised-button
+    color="primary"
+    style="width: 50%"
+    (click)="calculate()"
+  >
+    Calculate
+  </button>
+</div>

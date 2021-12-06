@@ -1,0 +1,10 @@
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  flex: 1;
+  padding: 10px;
+}
